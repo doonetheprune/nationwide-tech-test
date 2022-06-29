@@ -1,0 +1,14 @@
+version: '1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: property-listing
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - 127.0.0.1:5432:5432

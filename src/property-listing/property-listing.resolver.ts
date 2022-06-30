@@ -15,7 +15,7 @@ export class PropertyListingResolver {
     @Args('createPropertyListingInput')
     createPropertyListingInput: CreatePropertyListingInput,
   ) {
-    // return this.propertyListingService.create(createPropertyListingInput);
+    return this.propertyListingService.create(createPropertyListingInput);
   }
 
   @Query(() => [PropertyListing], { name: 'propertyListing' })

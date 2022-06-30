@@ -12,6 +12,22 @@ export class PropertyListingService {
     private propertyListingRepository: Repository<PropertyListing>,
   ) {}
 
+  create(
+    createPropertyListingInput: CreatePropertyListingInput,
+  ): Promise<PropertyListing> {
+    return this.propertyListingRepository.save(createPropertyListingInput);
+  }
+
+  // update(
+  //   id: number,
+  //   updatePropertyListingInput: UpdatePropertyListingInput,
+  // ): Promise<PropertyListing> {
+  //   return this.propertyListingRepository.update(
+  //     { id },
+  //     updatePropertyListingInput,
+  //   );
+  // }
+
   findAll(): Promise<PropertyListing[]> {
     return this.propertyListingRepository.find();
   }

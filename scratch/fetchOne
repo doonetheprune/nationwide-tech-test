@@ -1,0 +1,10 @@
+query PropertyListing($propertyListingId: Int!) {
+  propertyListing(id: $propertyListingId) {
+    id
+    propertyType
+  }
+}
+
+{
+  "propertyListingId": 5
+}

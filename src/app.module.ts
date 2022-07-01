@@ -25,7 +25,6 @@ import { PropertyListing } from './property-listing/entities/property-listing.en
       driver: ApolloDriver,
       autoSchemaFile: './schema.gql',
       playground: false,
-      plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
   ],
   controllers: [AppController],

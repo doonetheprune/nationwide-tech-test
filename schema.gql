@@ -1,0 +1,50 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PropertyListing {
+  """Example field (placeholder)"""
+  id: Int!
+  propertyType: String!
+  headline: String!
+  description: String!
+  addressLine1: String!
+}
+
+type Query {
+  propertyListing(id: Int!): PropertyListing!
+}
+
+type Mutation {
+  createPropertyListing(createPropertyListingInput: CreatePropertyListingInput!): PropertyListing!
+  updatePropertyListing(updatePropertyListingInput: UpdatePropertyListingInput!): PropertyListing!
+  removePropertyListing(id: Int!): PropertyListing!
+}
+
+input CreatePropertyListingInput {
+  """Type of property i.e Detached, Semi-Detached etc."""
+  propertyType: String!
+
+  """Headline for the listing, what is shown when all the listing are shown"""
+  headline: String!
+
+  """
+  Description for the listing, this would be what they see when click into the listing
+  """
+  description: String!
+  addressLine1: String!
+}
+
+input UpdatePropertyListingInput {
+  """Type of property i.e Detached, Semi-Detached etc."""
+  propertyType: String!
+
+  """Headline for the listing, what is shown when all the listing are shown"""
+  headline: String!
+
+  """
+  Description for the listing, this would be what they see when click into the listing
+  """
+  description: String!
+  addressLine1: String!
+}

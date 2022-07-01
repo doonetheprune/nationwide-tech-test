@@ -18,9 +18,9 @@ describe('PropertyListingService', () => {
         {
           provide: REPOSITORY_TOKEN,
           useValue: {
-            create: jest.fn(),
             save: jest.fn(),
-            findOne: jest.fn(),
+            findOneBy: jest.fn(),
+            delete: jest.fn(),
           },
         },
       ],
@@ -38,13 +38,31 @@ describe('PropertyListingService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should return a property listing', async () => {
+  it('should create and return a property listing', async () => {
     jest
-      .spyOn(respository, 'create')
-      .mockReturnValue(() => Promise.resolve(PropertyListing: standardPropertyListing));
+      .spyOn(respository, 'save')
+      .mockImplementation(() => Promise.resolve(standardPropertyListing));
 
     await expect(
       service.create(standardPropertyListing),
     ).resolves.toStrictEqual(standardPropertyListing);
+  });
+
+  it('should return a property listing', async () => {
+    jest
+      .spyOn(respository, 'findOneBy')
+      .mockImplementation(() => Promise.resolve(standardPropertyListing));
+
+    await expect(service.findOne(34)).resolves.toStrictEqual(
+      standardPropertyListing,
+    );
+  });
+
+  it('should return a promise after delete', async () => {
+    jest
+      .spyOn(respository, 'delete')
+      .mockImplementation(() => Promise.resolve(undefined));
+
+    await expect(service.remove(34)).toBeInstanceOf(Promise);
   });
 });

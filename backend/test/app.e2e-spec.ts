@@ -41,8 +41,8 @@ describe('AppController (e2e)', () => {
           });
         });
     });
-    it('Create a property listing', () => {
-      //@TODO Create an item in the database to use to find the item
-    });
+    // it("Create a property listing", () => {
+    //   //@TODO Create an item in the database to use to find the item
+    // });
   });
 });

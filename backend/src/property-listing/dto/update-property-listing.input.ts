@@ -1,10 +1,12 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
-import { Column } from 'typeorm';
+import { CreatePropertyListingInput } from './create-property-listing.input';
+import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
-export class CreatePropertyListingInput {
+export class UpdatePropertyListingInput extends PartialType(
+  CreatePropertyListingInput,
+) {
   @Field(() => String, {
-    description: 'Type of property i.e Detached, Semi-Detached etc.',
+    description: 'Type of property i.e Detached, Semi-Detached etc. or cows',
   })
   propertyType: string;
 

@@ -3,7 +3,7 @@ import { PropertyListingService } from './property-listing.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { PropertyListing } from './entities/property-listing.entity';
 import { Repository } from 'typeorm';
-import { standardPropertyListing } from './property-listing.resolver.mock';
+import { standardPropertyListing } from './property-listing.service.mock';
 
 describe('PropertyListingService', () => {
   const REPOSITORY_TOKEN = getRepositoryToken(PropertyListing);

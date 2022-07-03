@@ -2,6 +2,8 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+directive @upper on FIELD_DEFINITION
+
 type PropertyListing {
   """Example field (placeholder)"""
   id: Int!
@@ -12,7 +14,8 @@ type PropertyListing {
 }
 
 type Query {
-  propertyListing(id: Int!): PropertyListing!
+  find(id: Int!): PropertyListing!
+  findAll(skip: Int = 0, take: Int = 25): [PropertyListing!]!
 }
 
 type Mutation {
@@ -22,7 +25,7 @@ type Mutation {
 }
 
 input CreatePropertyListingInput {
-  """Type of property i.e Detached, Semi-Detached etc."""
+  """Type of property i.e Detached, Semi-Detached etc or not."""
   propertyType: String!
 
   """Headline for the listing, what is shown when all the listing are shown"""
@@ -36,7 +39,7 @@ input CreatePropertyListingInput {
 }
 
 input UpdatePropertyListingInput {
-  """Type of property i.e Detached, Semi-Detached etc."""
+  """Type of property i.e Detached, Semi-Detached etc. or cows"""
   propertyType: String!
 
   """Headline for the listing, what is shown when all the listing are shown"""

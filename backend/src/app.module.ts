@@ -7,6 +7,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { PropertyListing } from './property-listing/entities/property-listing.entity';
+import { DirectiveLocation, GraphQLDirective } from "graphql";
 
 @Module({
   imports: [
@@ -24,7 +25,16 @@ import { PropertyListing } from './property-listing/entities/property-listing.en
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: './schema.gql',
-      playground: false,
+      playground: true,
+      installSubscriptionHandlers: true,
+      buildSchemaOptions: {
+        directives: [
+          new GraphQLDirective({
+            name: 'upper',
+            locations: [DirectiveLocation.FIELD_DEFINITION],
+          }),
+        ],
+      },
     }),
   ],
   controllers: [AppController],

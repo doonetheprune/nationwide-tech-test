@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
+import { AppModule } from '../src/app.module';
 import { _ } from 'lodash';
 import {
   propertyListingMockData,
@@ -23,8 +23,8 @@ describe('AppController (e2e)', () => {
   });
 
   describe('PropertyListingResolver', () => {
-    it('Create a property listing', () => {
-      return request(app.getHttpServer())
+    it('Create a property listing', (done) => {
+      request(app.getHttpServer())
         .post('/graphql')
         .set('content-type', 'application/json')
         .send(createPropertyListingCreateQuery)
@@ -39,7 +39,8 @@ describe('AppController (e2e)', () => {
             );
             expect(valueInResult).toEqual(value);
           });
-        });
+        })
+        .end(done);
     });
     // it("Create a property listing", () => {
     //   //@TODO Create an item in the database to use to find the item

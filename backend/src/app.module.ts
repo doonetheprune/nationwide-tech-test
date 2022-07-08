@@ -5,9 +5,8 @@ import { PropertyListingModule } from './property-listing/property-listing.modul
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { PropertyListing } from './property-listing/entities/property-listing.entity';
-import { DirectiveLocation, GraphQLDirective } from "graphql";
+import { DirectiveLocation, GraphQLDirective } from 'graphql';
 
 @Module({
   imports: [
